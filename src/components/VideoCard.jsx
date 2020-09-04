@@ -15,7 +15,10 @@ const VideoCard = forwardRef(({ movie }, ref) => {
         {playVideo ? (
           <ReactPlayer
             className="react-player"
-            url={trailers[movie.title]}
+            url={
+              trailers[movie.title] ||
+              "https://www.youtube.com/watch?v=2U76x2fD_tE"
+            }
             controls
             width="500px"
             height="300px"
