@@ -10,6 +10,7 @@ export default function Results({ selectedOption }) {
     async function fetch() {
       const response = await axios.get(selectedOption);
       setMovies(response.data.results);
+      console.log(response);
       return response;
     }
     fetch();
