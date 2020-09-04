@@ -2,6 +2,8 @@ Created with the help of the following tutorial: https://www.youtube.com/watch?v
 
 Hosted via firebase: https://nickflix-ba6e7.web.app
 
+Movie information from The Movie Database API
+
 Features added past the scope of tutorial:
 
 -showing the active tab of navbar
