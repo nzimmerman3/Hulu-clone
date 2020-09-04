@@ -1,16 +1,28 @@
 import React from "react";
 import "../css/VideoCard.css";
+import TextTruncate from "react-text-truncate";
+import GradeIcon from "@material-ui/icons/Grade";
+const base_url = "https://image.tmdb.org/t/p/original/";
 
 export default function VideoCard({ movie }) {
   return (
     <div className="videoCard">
       <img
-        src="https://cdn.onebauer.media/one/empire-tmdb/films/1124/images/c5o7FN2vzI7xlU6IF1y64mgcH9E.jpg?quality=50&width=1800&ratio=16-9&resizeStyle=aspectfill&format=jpg"
+        src={`${base_url}${movie.backdrop_path || movie.poster_path}`}
         alt=""
       />
-      <p>This is my favorite film</p>
-      <h2>The Prestige</h2>
-      <p>Number of likes...</p>
+      <TextTruncate
+        line={1}
+        element="p"
+        truncateText="..."
+        text={movie.overview}
+      />
+      <h2>{movie.title || movie.original_name}</h2>
+      <p className="videoCard__stats">
+        {movie.media_type && `${movie.media_type} •`}
+        {movie.release_date || movie.first_air_date} • {movie.vote_average}
+        <GradeIcon />
+      </p>
     </div>
   );
 }
