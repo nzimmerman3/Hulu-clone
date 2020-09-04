@@ -1,12 +1,13 @@
-import React from "react";
+import React, { forwardRef } from "react";
 import "../css/VideoCard.css";
 import TextTruncate from "react-text-truncate";
 import GradeIcon from "@material-ui/icons/Grade";
+
 const base_url = "https://image.tmdb.org/t/p/original/";
 
-export default function VideoCard({ movie }) {
+const VideoCard = forwardRef(({ movie }, ref) => {
   return (
-    <div className="videoCard">
+    <div ref={ref} className="videoCard">
       <img
         src={`${base_url}${movie.backdrop_path || movie.poster_path}`}
         alt=""
@@ -25,4 +26,6 @@ export default function VideoCard({ movie }) {
       </p>
     </div>
   );
-}
+});
+
+export default VideoCard;

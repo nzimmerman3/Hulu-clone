@@ -2,25 +2,26 @@ import React, { useState, useEffect } from "react";
 import "../css/Results.css";
 import VideoCard from "./VideoCard";
 import axios from "../axios";
-import requests from "../requests";
+import FlipMove from "react-flip-move";
 
-export default function Results() {
+export default function Results({ selectedOption }) {
   const [movies, setMovies] = useState([]);
   useEffect(() => {
     async function fetch() {
-      const response = await axios.get(requests.fetchPopular);
+      const response = await axios.get(selectedOption);
       setMovies(response.data.results);
-      console.log(response);
       return response;
     }
     fetch();
-  }, []);
+  }, [selectedOption]);
 
   return (
     <div className="results">
-      {movies.map((movie) => {
-        return <VideoCard movie={movie} />;
-      })}
+      <FlipMove>
+        {movies.map((movie) => {
+          return <VideoCard key={movie.id} movie={movie} />;
+        })}
+      </FlipMove>
     </div>
   );
 }
