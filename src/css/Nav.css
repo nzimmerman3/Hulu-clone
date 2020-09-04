@@ -15,6 +15,11 @@
   transition: transform 50ms ease-out;
 }
 
+.nav > .active {
+  opacity: 1;
+  transform: scale(1.2);
+}
+
 .nav > h2:hover {
   opacity: 1;
   transform: scale(1.2);

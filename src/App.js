@@ -10,7 +10,10 @@ function App() {
   return (
     <div className="app">
       <Header />
-      <Nav setSelectedOption={setSelectedOption} />
+      <Nav
+        selectedOption={selectedOption}
+        setSelectedOption={setSelectedOption}
+      />
       <Results selectedOption={selectedOption} />
     </div>
   );
