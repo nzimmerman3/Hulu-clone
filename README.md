@@ -9,3 +9,5 @@ Features added past the scope of tutorial:
 -showing the active tab of navbar
 
 -all video playing capabilities (tutorial was just the appearance of page)
+
+-environment variables
